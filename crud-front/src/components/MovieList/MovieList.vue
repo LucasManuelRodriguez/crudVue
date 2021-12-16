@@ -3,9 +3,13 @@
     <h1> Lista de Pelis</h1>
     <ul>
       <li v-for="(movie,index) in movies" :key="index">
-        titulo
+        {{index}} - {{movie.title}}
       </li>
     </ul>
+    <input type="text" v-model="newMovie.title" />
+    <button @click="addMovie">Add</button>
+    <p>{{newMovie.title}}</p>
+
   </div>
 </template>
 
@@ -13,7 +17,25 @@
 export default {
   data(){
     return{
-      movies:[1,2,3],
+      newMovie:{},
+      movies:[
+        {
+        title:'Terminator 2',
+        },
+        {
+        title:'Rapido y Furioso',
+        },
+        {
+        title:'La Máscara',
+        }
+        ],
+    }
+  },
+  methods:{
+    addMovie(){
+      if(!this.newMovie.title) return;
+      this.movies = [...this.movies, this.newMovie];
+      this.newMovie ={};
     }
   }
 
