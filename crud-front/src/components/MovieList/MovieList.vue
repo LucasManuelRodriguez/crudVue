@@ -1,6 +1,11 @@
 <template>
   <div>
-    <h1> {{msg}}</h1>
+    <h1> Lista de Pelis</h1>
+    <ul>
+      <li v-for="(movie,index) in movies" :key="index">
+        titulo
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -8,11 +13,15 @@
 export default {
   data(){
     return{
-      msg:'Lista peis',
+      movies:[1,2,3],
     }
   }
 
 };
 </script>
 
-<style></style>
+<style>
+ul{
+  list-style: none;
+}
+</style>
